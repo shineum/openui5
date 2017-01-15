@@ -4,8 +4,8 @@ var sapApp = new sap.m.App();
 sapApp.placeAt("content");
 
 sapApp.addPage(
-    sap.ui.view("view.HelloWorld", {
-        viewName: "z_fiori.HelloWorld"
+    sap.ui.view("view.Main", {
+        viewName: "z_fiori.Main"
         , type: sap.ui.core.mvc.ViewType.JS
     })
 );
