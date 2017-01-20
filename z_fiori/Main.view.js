@@ -22,43 +22,25 @@ sap.ui.jsview("z_fiori.Main", {
                     new sap.m.ScrollContainer({content: [
                         new sap.m.List({
                             showNoData: true
-                            , columns: [
-                                new sap.m.Column()
-                            ]
-                        }).addItem(
-                            new sap.m.StandardListItem({
-                                title: "MoonBucks"
-                                , icon: "sap-icon://e-care"
-                                , info: "★★☆☆☆"
-                                , description: "Description"
-                            })
-                        ).addItem(
-                            new sap.m.StandardListItem({
-                                title: "StartBucks"
-                                , icon: "sap-icon://e-care"
-                                , info: "★★★★☆"
-                                , description: "Description"
-                            })
-                        ).addItem(
-                            new sap.m.StandardListItem({
-                                title: "CoffeeVince"
-                                , icon: "sap-icon://e-care"
-                                , info: "★★★☆☆"
-                                , description: "Description"
-                            })
-                        ).addItem(
-                            new sap.m.StandardListItem({
-                                title: "StarBugs"
-                                , icon: "sap-icon://e-care"
-                                , info: "★★★☆☆"
-                                , description: "Description"
-                            })
-                        )
+                            , columns: [ new sap.m.Column() ]
+                            , items: {
+                                path: "/d/listItems"
+                                , template: new sap.m.StandardListItem({
+                                    title: "{title}"
+                                    , icon: "{icon}"
+                                    , info: {
+                                        parts: ["rating"]
+                                        , formatter: oController.infoFormatter
+                                    }
+                                    , description: "{description}"
+                                })
+                            }
+                        })
                     ]}).addStyleClass("scrollContainer")
                     , new sap.m.TextArea({
                             cols:50
                             , rows:10
-                            , value: "In the long history of the world, only a few generations have been granted the role of defending freedom in its hour of maximum danger. I do not shrink from this responsibility - I welcome it."
+                            , value: "{/d/siteDescription}"
                     }).addStyleClass("textArea")
                 ]
             }).addStyleClass("mainContent")
